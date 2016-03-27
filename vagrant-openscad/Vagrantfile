@@ -75,6 +75,9 @@ Vagrant.configure(2) do |config|
   #enable x11
   config.ssh.forward_x11=true
 
+  #config folder vagrant_data 
+  config.vm.synced_folder "../../geekhubs-refactoring/Openscad/", "/vagrant_data"
+
   #fix stdin-is-not-a-tty http://foo-o-rama.com/vagrant--stdin-is-not-a-tty--fix.html
   config.vm.provision "fix-no-tty", type: "shell" do |s|
     s.privileged = false
